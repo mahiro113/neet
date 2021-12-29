@@ -1,0 +1,52 @@
+@charset 'utf-8';
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body{
+    background:black;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+.name-enter{
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh; 
+    background:black; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    transition: all 0.3s; 
+    z-index: 9999;
+}
+
+#startlog{
+    text-align: center;
+    top: 25vh;
+    right: 36.5vw;
+    font-family: 'DotGothic16', sans-serif;
+}
+
+#startlog >div{
+    color:white;
+    background: black;
+}
+
+#decide-button{
+    display: block;
+    font-family: 'DotGothic16', sans-serif;
+    width: 100%;
+
+}
+
+#skip-button{
+    display: block;
+    font-family: 'DotGothic16', sans-serif;
+    width: 100%;
+
+}
