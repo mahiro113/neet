@@ -41,12 +41,22 @@ body{
     display: block;
     font-family: 'DotGothic16', sans-serif;
     width: 100%;
+}
 
+@media screen and (max-width:564px){
+    #decide-button{
+        font-size: 1rem;
+    }
 }
 
 #skip-button{
     display: block;
     font-family: 'DotGothic16', sans-serif;
     width: 100%;
+}
 
+@media screen and (max-width:564px){
+    #skip-button{
+        font-size: 1rem;
+    }
 }
