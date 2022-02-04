@@ -13,3 +13,6 @@
 - Typed.js
 - JQuery
 - Semantic ui 
+
+# 追記
+JQueryとかはCDNでもできますが初めて触ったのでなんとなくダウンロードしただけです。
