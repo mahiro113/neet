@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>test</title>
-
+        <title>ニートになったら見るサイト</title>
+        <!--javascript-->
         <script src="./jquery-3.6.0.min.js"></script>
-        <script src="./main.js"></script>
+        <script src="./index.js"></script>
         <script src="./typed.js-master/lib/typed.min.js"></script>
         <script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
-        
+        <!--stylesheet-->
         <link rel="stylesheet" href="./Semantic-UI-CSS-master/semantic.min.css">
-        <link rel="stylesheet" href="./test.css">
+        <link rel="stylesheet" href="./index.css">
+        <!--github pages用-->
+        <script src="https://mahiro113.github.io/neet/jquery-3.6.0.min.js"></script>
+        <script src="https://mahiro113.github.io/neet/index.js"></script>
+        <script src="https://mahiro113.github.io/neet/typed.js-master/lib/typed.min.js"></script>
+        <script src="https://mahiro113.github.io/neet/Semantic-UI-CSS-master/semantic.min.js"></script>
+        <link rel="stylesheet" href="https://mahiro113.github.io/neet/Semantic-UI-CSS-master/semantic.min.css">
+        <link rel="stylesheet" href="https://mahiro113.github.io/neet/index.css">
+        <!--font-->
         <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
         
         <meta charset="utf-8">
@@ -40,7 +48,10 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="ui text container" id="caution">
+                    ※ボタンを押した後はメッセージ枠内をクリックしてください
+                </div>
+                
             </div>
             <!--本画面-->
             <div class="ui container">
@@ -52,7 +63,7 @@
                         <div class="comment">
                             <div class="encount-mes"><span class="typed encount"></span></div>
                             <div class="escape-mes display-none" id="escape-message"><span class="typed escape"></span></div>
-                            <div class="mes" id="start-mes"><span class="typed mes1">1</span></div>
+                            <div class="mes" id="start-mes"><span class="typed mes1"></span></div>
                             <div class="mes"><span class="typed mes2"></span></div>
                             <div class="mes"><span class="typed mes3"></span></div>
                             <div class="mes"><span class="typed mes4"></span></div>

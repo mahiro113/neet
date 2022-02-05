@@ -119,9 +119,22 @@ $(function(){
         $('#escape-wrapper').addClass('display-none');
         console.log('非表示にしたよ');
 
-        click_flg = true;
+        
         $('.encount-mes').addClass('display-none');
         $('#start-mes').addClass('active');
+        let type1 = new Typed('.mes1' ,{
+            strings:["・・・・!?"],
+            typeSpeed:30,
+            startDelay:300,
+            backDelay:500,
+            backSpeed:30,
+            loop:false,                
+            contentType:'html',
+            showCursor:false,
+            onComplete:()=>{
+                click_flg = true;
+            }
+        });
     });
     
         //コメントをクリックしたら次を表示
@@ -136,7 +149,7 @@ $(function(){
             switch(nextIndex){
                 case 1:
                     let type2 = new Typed('.mes2',{
-                        strings:["ニート最高!\n永遠に養ってくれや＾＾","...おや!? \n" + name + "の様子が...!"],
+                        strings:["あれ、やるきになったの・・・？","なら僕も着替えようかな","...おや!? \n" + name + "の様子が...!"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,
@@ -163,7 +176,7 @@ $(function(){
                     break;
                 case 2:
                     let type3 = new Typed('.mes3' ,{
-                        strings:["ぱわーーーー",name + "は就職した!"],
+                        strings:["ぱわーーーー!!!",name + "は就職した!"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,
@@ -178,7 +191,7 @@ $(function(){
                     break;
                 case 3:
                     let type4 = new Typed('.mes4' ,{
-                        strings:["めっせーじ４"],
+                        strings:["たたかうことを選んだキミは偉いよ","何もしてない期間が長ければ長いほどたたかうのは難しくなっちゃうから・・・"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,
@@ -193,7 +206,7 @@ $(function(){
                     break;
                 case 4:
                     let type5 = new Typed('.mes5' ,{
-                        strings:["めっせーじ５","しばらくここにこないことを祈ってるよ","じゃあな"],
+                        strings:["また社会に出ることでつらいことがあるかもしれないけど","今のキミならきっと乗り越えられるよ","しばらくここにはこないことを祈ってる","じゃあな・・・"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,

@@ -30,11 +30,13 @@ body{
     text-align: center;
     top: 25vh;
     font-family: 'DotGothic16', sans-serif;
+    border:0px none;
 }
 
 #startlog >div{
     color:white;
     background: black;
+    border:0px none;
 }
 
 #nameframe{
@@ -67,6 +69,14 @@ body{
     width: 100%;
 }
 
+#caution{
+    position: absolute;
+    bottom:20vh;
+    font-family: 'DotGothic16', sans-serif;
+    text-align: center;
+    color: white;
+    background: black;
+}
 
 .completed{
 
