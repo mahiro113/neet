@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>test</title>
+
+        <script src="./jquery-3.6.0.min.js"></script>
+        <script src="./main.js"></script>
+        <script src="./typed.js-master/lib/typed.min.js"></script>
+        <script src="./Semantic-UI-CSS-master/semantic.min.js"></script>
+        
+        <link rel="stylesheet" href="./Semantic-UI-CSS-master/semantic.min.css">
+        <link rel="stylesheet" href="./test.css">
+        <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    </head>
+    <body>    
+            <!--名前入力-->
+            <div class="name-enter">
+                <div class="ui text container" id="startlog">
+                    <div class="ui massive message">
+                        あなたの名前を入力してください
+                    </div>                    
+                </div>
+                <div class="ui text container">
+                    <div class="ui centered grid">
+                        <div class="ui ten wide column" id="name-wrapper">
+                            <div class="ui massive input" id="nameframe">                
+                                <input type="text" id="namein" placeholder="入力...">  
+                            </div>
+                        </div>
+                        <div class="ui row">
+                            <div class="ui five wide column" id="decide-wrapper">
+                                <button class="ui massive inverted basic orange button" id="decide-button">ok</button>  
+                            </div>
+                            <div class="ui five wide column" id="skip-wrapper">
+                                <button class="ui massive inverted basic green button" id="skip-button">skip</button>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--本画面-->
+            <div class="ui container">
+                <img class="ui centered large image" src="./images/gorogoro_neet.png" id="neetimg">
+            </div>
+            <div class="ui text container">
+                <div class="ui centered grid">
+                    <div class="ui ten wide column" id="comment-wrapper">
+                        <div class="comment">
+                            <div class="encount-mes"><span class="typed encount"></span></div>
+                            <div class="escape-mes display-none" id="escape-message"><span class="typed escape"></span></div>
+                            <div class="mes" id="start-mes"><span class="typed mes1">1</span></div>
+                            <div class="mes"><span class="typed mes2"></span></div>
+                            <div class="mes"><span class="typed mes3"></span></div>
+                            <div class="mes"><span class="typed mes4"></span></div>
+                            <div class="mes"><span class="typed mes5"></span></div>
+                        </div>
+                    </div>
+                    <div class="ui row">
+                        <div class="ui five wide column" id="fight-wrapper">
+                            <button class="ui massive inverted basic orange button" id="fight">たたかう</button>
+                        </div>
+                        <div class="ui five wide column" id="escape-wrapper">
+                            <button class="ui massive inverted basic blue button" id="escape">にげる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>

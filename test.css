@@ -26,14 +26,30 @@ body{
 }
 
 #startlog{
+    position: absolute;
     text-align: center;
     top: 25vh;
-    right: 36.5vw;
     font-family: 'DotGothic16', sans-serif;
 }
 
 #startlog >div{
     color:white;
+    background: black;
+}
+
+#nameframe{
+    color: white;
+    font-family: 'DotGothic16', sans-serif;
+    background-color:black;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid white;
+}
+
+#namein{
+    font-family: 'DotGothic16', sans-serif;
+    outline: none;
+    color: white;
     background: black;
 }
 
@@ -43,11 +59,7 @@ body{
     width: 100%;
 }
 
-@media screen and (max-width:564px){
-    #decide-button{
-        font-size: 1rem;
-    }
-}
+
 
 #skip-button{
     display: block;
@@ -55,8 +67,36 @@ body{
     width: 100%;
 }
 
-@media screen and (max-width:564px){
-    #skip-button{
-        font-size: 1rem;
-    }
+
+.completed{
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.comment{
+    width: 100%;
+    height: 11.2vh;
+    color: white;
+    border: 3px solid white;
+    border-radius: 3px;
+}
+
+#fight{
+    width: 100%;
+}
+
+#escape{
+    width: 100%;
+}
+
+.mes {
+    display: none;
+}
+.active {
+    display: block;
+}
+
+.display-none{
+    display: none !important;
 }

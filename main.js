@@ -1,29 +1,49 @@
 $(function(){
 
-    //commentをクリックしたらpromiseを返す
-    function commentClickPromise(){
-        var myDefer = $.Deferred();
-        $('.comment').on('click',function(){
-            myDefer.resolve();
-        });
-        console.log('promiseできたよん');
-        return myDefer.promise();
-    };
+    const mediaQueryList = window.matchMedia('(max-width:632px)');
+    //初期化
+    classChange(mediaQueryList)
 
-    //promiseをただ返す
-    function createPromise(){
-        var myDefer = $.Deferred();
-        myDefer.resolve();
-        return myDefer.promise();
-    };
+    mediaQueryList.addEventListener("change",classChange);
+    //mediaquery用関数
+    function classChange(mq){
+        if(mq.matches){
+            $('#fight-wrapper,#escape-wrapper').removeClass().addClass('ui eight wide column');
+            $('#comment-wrapper').removeClass().addClass('ui sixteen wide column');
+            $('#decide-wrapper,#skip-wrapper').removeClass().addClass('ui six wide column');
+            $('#name-wrapper').removeClass().addClass('ui twelve wide column');
+            console.log('小さい画面');
+        }else{
+            $('#decide-wrapper,#skip-wrapper,#fight-wrapper,#escape-wrapper').removeClass().addClass('ui five wide column');
+            $('#name-wrapper,#comment-wrapper').removeClass().addClass('ui ten wide column');
+            console.log('大きい画面');
+        }
+    }
 
     //ボタンおしたら画面をけして名前を保存する処理
-    var name;
+    let name;
 
-    $('#enter-button').on('click',function(){
+    function encount(n){
+        new Typed('.encount',{
+            strings:[n + 'があらわれた!'],
+                typeSpeed:30,
+                startDelay:300,
+                backDelay:500,
+                backSpeed:30,
+                loop:false,            
+                contentType:'html',
+                showCursor:false,
+        });
+    };
+
+    //okボタンの処理
+    $('#decide-button').on('click',function(){
         name = $('#namein').val();
         console.log(name);
         $('.name-enter').addClass('completed');
+        click_flg = false;
+        encount(name);
+        
     });
 
     //skipボタンの処理
@@ -31,19 +51,21 @@ $(function(){
         name = 'にーと';
         console.log('skipしました');
         $('.name-enter').addClass('completed');
+        click_flg = false;
+        encount(name);
     });
 
 
     //コメントをクリックしたら次のメッセージを表示する関数
     function nextMessage(comment){
 
-        var mes = $('.mes');
+        let mes = $('.mes');
         //クリックした要素のactive要素を取得
-        var currentMes =　$(comment).find('.mes.active');
+        let currentMes = $(comment).find('.mes.active');
         //activeのインデックスを取得し次のインデックスを返す
-        var nextIndex = mes.index(currentMes) + 1;
+        let nextIndex = mes.index(currentMes) + 1;
         //次の要素をかえす
-        var nextMes = mes.eq(nextIndex);
+        let nextMes = mes.eq(nextIndex);
         //active要素のつけ外し
         if(nextMes.length > 0){
             currentMes.removeClass('active');
@@ -54,13 +76,53 @@ $(function(){
     };
     
     //clickの連打を防ぐ
-    var click_flg = true;
+    let click_flg = true;
     //animeの設定
-    var setting = {
+    const setting = {
         animation : 'pulse',
         duration : '0.5s',
     };
 
+    //逃げるボタンの処理
+    $('#escape-wrapper').on('click',function(){
+        //ボタン非表示
+        $('#fight-wrapper').addClass('display-none');
+        $('#escape-wrapper').addClass('display-none');
+        console.log('非表示にしたよ');
+
+        $('#escape-message').removeClass('display-none');
+        $('#start-mes').removeClass('active');
+        $('.encount-mes').addClass('display-none');
+
+        //逃げる押したときメッセージ
+        let escape = new Typed('.escape',{
+            strings:["逃げてもいいけど社会の中で生きる限りいつかは向き合うときがくる","今はゆっくり休んでニートの期間を楽しもうぜ!!!","じゃあな...",""],
+            typeSpeed:60,
+            startDelay:300,
+            backDelay:500,
+            backSpeed:30,
+            loop:false,            
+            contentType:'html',
+            showCursor:false,
+            onComplete:()=>{
+                click_flg = true;
+                location.reload();
+            }
+        });
+
+    });
+
+    //たたかうボタンの処理
+    $('#fight-wrapper').on('click',function(){
+        //ボタン消す
+        $('#fight-wrapper').addClass('display-none');
+        $('#escape-wrapper').addClass('display-none');
+        console.log('非表示にしたよ');
+
+        click_flg = true;
+        $('.encount-mes').addClass('display-none');
+        $('#start-mes').addClass('active');
+    });
     
         //コメントをクリックしたら次を表示
     $('.comment').on('click',function(){
@@ -69,64 +131,92 @@ $(function(){
         if(click_flg){
             click_flg = false;
 
-            var nextIndex =  nextMessage(this);
-    
-            //なんかこれで思い通りに動く
-            if(nextIndex==1){
-                var type2 = new Typed('.mes2',{
-                    strings:["ニート最高!\n永遠に養ってクレメンス","おや、ニートの様子が..."],
-                    typeSpeed:30,
-                    startDelay:300,
-                    backDelay:500,
-                    backSpeed:30,
-                    loop:false,            
-                    contentType:'html',
-                    showCursor:false,
-                    onComplete:()=>{
-                        $('#neet').transition(setting)
-                        .transition(setting)
-                        .transition(setting)
-                        .transition(setting)
-                        .transition({
-                            animation : 'pulse',
-                            duration : '0.5s',
-                            onComplete : function(){
-                                $('#neet').attr('src','../images/business_man_macho.png');
-                                $('.comment').addClass('two');
-                                $('.comment').removeClass('one');
-                                click_flg = true;
-                                
-                            },
-                        });
-                    }       
-                });
+            let nextIndex =  nextMessage(this);
 
-            }else if(nextIndex==2){
-    
-                var type3 = new Typed('.mes3' ,{
-                    strings:["ぱわーーーー","普通の人になった"],
-                    typeSpeed:30,
-                    startDelay:300,
-                    backDelay:500,
-                    backSpeed:30,
-                    loop:false,                
-                    contentType:'html',
-                    showCursor:false,
-                    onComplete:()=>{
-                        click_flg = true;
-                    }
-                });
-            }else if(nextIndex==3){
-                click_flg = true;
-            }else if(nextIndex==4){
-                click_flg = true;
-            }else{
-                console.log('返事がない。ただの屍のようだ...');
-                click_flg = true;
+            switch(nextIndex){
+                case 1:
+                    let type2 = new Typed('.mes2',{
+                        strings:["ニート最高!\n永遠に養ってくれや＾＾","...おや!? \n" + name + "の様子が...!"],
+                        typeSpeed:30,
+                        startDelay:300,
+                        backDelay:500,
+                        backSpeed:30,
+                        loop:false,            
+                        contentType:'html',
+                        showCursor:false,
+                        onComplete:()=>{
+                            $('#neetimg').transition(setting)
+                            .transition(setting)
+                            .transition(setting)
+                            .transition(setting)
+                            .transition({
+                                animation : 'pulse',
+                                duration : '0.5s',
+                                onComplete : function(){
+                                    $('#neetimg').attr('src','./images/business_man_macho.png');
+                                    click_flg = true;
+                                    
+                                },
+                            });
+                        }       
+                    });
+                    break;
+                case 2:
+                    let type3 = new Typed('.mes3' ,{
+                        strings:["ぱわーーーー",name + "は就職した!"],
+                        typeSpeed:30,
+                        startDelay:300,
+                        backDelay:500,
+                        backSpeed:30,
+                        loop:false,                
+                        contentType:'html',
+                        showCursor:false,
+                        onComplete:()=>{
+                            click_flg = true;
+                        }
+                    });
+                    break;
+                case 3:
+                    let type4 = new Typed('.mes4' ,{
+                        strings:["めっせーじ４"],
+                        typeSpeed:30,
+                        startDelay:300,
+                        backDelay:500,
+                        backSpeed:30,
+                        loop:false,                
+                        contentType:'html',
+                        showCursor:false,
+                        onComplete:()=>{
+                            click_flg = true;
+                        }
+                    });
+                    break;
+                case 4:
+                    let type5 = new Typed('.mes5' ,{
+                        strings:["めっせーじ５","しばらくここにこないことを祈ってるよ","じゃあな"],
+                        typeSpeed:30,
+                        startDelay:300,
+                        backDelay:500,
+                        backSpeed:30,
+                        loop:false,                
+                        contentType:'html',
+                        showCursor:false,
+                        onComplete:()=>{
+                            click_flg = true;
+                            location.reload();
+                        }
+                    });
+                    break;
+                default:
+                    console.log('返事がない。ただの屍のようだ...');
+                    click_flg = true;
+                    
             };
+
         }else{
             console.log('連打しました');
         };
+        
     });
 
 });
