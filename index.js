@@ -122,7 +122,8 @@ $(function(){
         
         $('.encount-mes').addClass('display-none');
         $('#start-mes').addClass('active');
-        let type1 = new Typed('.mes1' ,{
+        
+        /*let type1 = new Typed('.mes1' ,{
             strings:["・・・・!?"],
             typeSpeed:30,
             startDelay:300,
@@ -134,12 +135,13 @@ $(function(){
             onComplete:()=>{
                 click_flg = true;
             }
-        });
+        });*/
+        click_flg=true;
     });
     
         //コメントをクリックしたら次を表示
     $('.comment').on('click',function(){
-           
+        
         //連打防止
         if(click_flg){
             click_flg = false;
@@ -148,6 +150,7 @@ $(function(){
 
             switch(nextIndex){
                 case 1:
+                    console.log('とばされてないよ')
                     let type2 = new Typed('.mes2',{
                         strings:["あれ、やるきになったの・・・？","なら僕も着替えようかな","...おや!? \n" + name + "の様子が...!"],
                         typeSpeed:30,
