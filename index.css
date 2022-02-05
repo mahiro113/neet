@@ -92,6 +92,14 @@ body{
     border-radius: 3px;
 }
 
+#wrap{
+    position: absolute;
+    top: 10vh;
+    right:0;
+    left: 0;
+    margin: auto;
+}
+
 #fight{
     width: 100%;
 }

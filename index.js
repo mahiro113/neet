@@ -38,7 +38,12 @@ $(function(){
 
     //okボタンの処理
     $('#decide-button').on('click',function(){
-        name = $('#namein').val();
+        if($('#namein').val()){
+            name = $('#namein').val();
+        }else{
+            name = 'ななし'
+        }
+        
         console.log(name);
         $('.name-enter').addClass('completed');
         click_flg = false;
@@ -123,9 +128,9 @@ $(function(){
         $('.encount-mes').addClass('display-none');
         $('#start-mes').addClass('active');
         
-        /*let type1 = new Typed('.mes1' ,{
-            strings:["・・・・!?"],
-            typeSpeed:30,
+        let type1 = new Typed('.mes1' ,{
+            strings:["・・・・!"],
+            typeSpeed:300,
             startDelay:300,
             backDelay:500,
             backSpeed:30,
@@ -135,8 +140,8 @@ $(function(){
             onComplete:()=>{
                 click_flg = true;
             }
-        });*/
-        click_flg=true;
+        });
+        
     });
     
         //コメントをクリックしたら次を表示
@@ -194,7 +199,7 @@ $(function(){
                     break;
                 case 3:
                     let type4 = new Typed('.mes4' ,{
-                        strings:["たたかうことを選んだキミは偉いよ","何もしてない期間が長ければ長いほどたたかうのは難しくなっちゃうから・・・"],
+                        strings:["たたかうことを選んだキミは偉いよ","嫌なこと、苦手なことに向き合うのはとても疲れるから"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,
@@ -209,7 +214,8 @@ $(function(){
                     break;
                 case 4:
                     let type5 = new Typed('.mes5' ,{
-                        strings:["また社会に出ることでつらいことがあるかもしれないけど","今のキミならきっと乗り越えられるよ","しばらくここにはこないことを祈ってる","じゃあな・・・"],
+                        strings:["また社会に出ることでつらいことがあるかもしれないけど","今のキミならきっと乗り越えられるよ"
+                        ,"けど無理はしすぎないでね","じゃあね・・・"],
                         typeSpeed:30,
                         startDelay:300,
                         backDelay:500,
@@ -218,8 +224,10 @@ $(function(){
                         contentType:'html',
                         showCursor:false,
                         onComplete:()=>{
-                            click_flg = true;
-                            location.reload();
+                            setTimeout(()=>{
+                                click_flg = true;
+                                location.reload();
+                            },2000);
                         }
                     });
                     break;
