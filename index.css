@@ -25,10 +25,18 @@ body{
     z-index: 9999;
 }
 
-#startlog{
-    position: absolute;
-    text-align: center;
+#startwrap{
+    position:absolute;
     top: 25vh;
+    right:0;
+    left: 0;
+    margin: auto;
+}
+
+#startlog{
+    /* position: absolute;
+    top: 25vh;  */
+    text-align: center;
     font-family: 'DotGothic16', sans-serif;
     border:0px none;
 }
@@ -70,8 +78,9 @@ body{
 }
 
 #caution{
-    position: absolute;
-    bottom:20vh;
+    /*position: absolute;
+    top:50vh;*/
+    margin-top: 10vh;
     font-family: 'DotGothic16', sans-serif;
     text-align: center;
     color: white;
